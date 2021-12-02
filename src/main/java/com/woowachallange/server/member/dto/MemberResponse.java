@@ -10,13 +10,13 @@ import java.time.LocalDateTime;
 @Getter
 public class MemberResponse {
 
-    private Long id;
+    private Long memberId;
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
 
     @Builder
-    private MemberResponse(Long id, LocalDateTime createDate, LocalDateTime updateDate) {
-        this.id = id;
+    private MemberResponse(Long memberId, LocalDateTime createDate, LocalDateTime updateDate) {
+        this.memberId = memberId;
         this.createDate = createDate;
         this.updateDate = updateDate;
     }

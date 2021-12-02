@@ -1,4 +1,7 @@
-###
+### 멤버 생성
 POST {{host}}/v1/member
+
+### 멤버 조회
+GET {{host}}/v1/member/1
 
 ###
