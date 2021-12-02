@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibenate:
+        format_sql: true
+    show-sql: true

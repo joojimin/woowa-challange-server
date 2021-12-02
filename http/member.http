@@ -1,0 +1,4 @@
+###
+POST {{host}}/v1/member
+
+###
