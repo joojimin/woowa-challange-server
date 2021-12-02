@@ -4,7 +4,10 @@ import lombok.Getter;
 
 @Getter
 public enum ResponseCode {
-    OK("000");
+    OK("000"),
+    INTERNAL_SERVER_ERROR("100", "서버 오류입니다. 고객센터로 문의해주세요."),
+    NOT_FOUND_MEMBER("200", "고객 정보를 찾을 수 없습니다. 고객센터로 문의해주세요.")
+    ;
 
 
     private final String code;
@@ -16,7 +19,7 @@ public enum ResponseCode {
         this.description = "성공";
     }
 
-    private ResponseCode(String code, String description) {
+    ResponseCode(String code, String description) {
         this.code = code;
         this.description = description;
     }
