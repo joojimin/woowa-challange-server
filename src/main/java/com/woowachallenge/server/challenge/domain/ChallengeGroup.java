@@ -1,7 +1,7 @@
 package com.woowachallenge.server.challenge.domain;
 
 import com.woowachallenge.server.common.type.ChallengeJoinType;
-import com.woowachallenge.server.common.type.ChallengeStatus;
+import com.woowachallenge.server.common.type.ChallengeOpenStatus;
 import com.woowachallenge.server.common.type.CollectingType;
 import com.woowachallenge.server.common.type.OrderCategory;
 import lombok.AccessLevel;
@@ -19,6 +19,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -34,7 +35,10 @@ public class ChallengeGroup {
     private ChallengeJoinType joinType;
 
     @OneToMany(mappedBy = "group")
-    private List<ChallengeGroupServiceType> groupServiceTypes;
+    private List<ChallengeItem> items = new ArrayList<>();
+
+    @OneToMany(mappedBy = "group")
+    private List<ChallengeGroupServiceType> groupServiceTypes = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private OrderCategory orderCategory;
@@ -45,14 +49,15 @@ public class ChallengeGroup {
     private CollectingType collectingType;
 
     @Enumerated(EnumType.STRING)
-    private ChallengeStatus status;
+    private ChallengeOpenStatus openStatus;
 
     private int pieceCount;
     private int repeatCount;
-    private int challengePeriod;
+    private LocalDateTime challengeStartDate;
+    private LocalDateTime challengeEndDate;
 
     @OneToMany(mappedBy = "group")
-    private List<ChallengeGroupReward> rewards;
+    private List<ChallengeGroupReward> rewards = new ArrayList<>();
 
     @CreatedDate
     private LocalDateTime createDate;
